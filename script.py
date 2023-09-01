@@ -18,8 +18,8 @@ for ticker in tickers:
     df["Daily_Return"] = df["Adj Close"].pct_change()
     data[ticker] = df["Adj Close"]
 
-# Calculate total returns (assuming dividends are reinvested)
-data["Total_Return"] = (data / data.iloc[0]).fillna(1.0)
+# Calculate total returns (assuming dividends are reinvested) for each ticker
+total_returns = (data / data.iloc[0]).fillna(1.0)
 
 # Plot the stock prices
 data.plot(figsize=(12, 6))
